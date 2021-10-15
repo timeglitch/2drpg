@@ -8,7 +8,7 @@ from config import *
 class Game:
     def __init__(self):
         pygame.init()
-        self.screen = pygame.display.set_mode((WIN_WIDTH, WIN_HEIGHT), pygame.RESIZABLE)
+        self.screen = pygame.display.set_mode((WIN_WIDTH, WIN_HEIGHT))
         self.clock = pygame.time.Clock()
         #self.font = pygame.font.Font('Arial', 32)
         self.running = True
@@ -19,7 +19,7 @@ class Game:
         #a new game starts
         self.playing = True
 
-        self.all_sprites = pygame.sprite.LayeredUpdates()
+        self.allsprites = pygame.sprite.LayeredUpdates()
         self.blocks = pygame.sprite.LayeredUpdates()
         self.enemies = pygame.sprite.LayeredUpdates()
         self.attacks = pygame.sprite.LayeredUpdates()
@@ -36,12 +36,13 @@ class Game:
 
     def update(self):
         #game loop update
-        self.all_sprites.update()
+        self.allsprites.update()
 
     def draw(self):
         self.screen.fill(BLACK)
-        self.all_sprites.draw(self.screen)
+        self.allsprites.draw(self.screen)
         self.clock.tick(FPS)
+        pygame.display.update()
 
     def main(self):
         #game loop
@@ -59,4 +60,12 @@ class Game:
 
     
 
-game = Game()
+g = Game()
+g.intro_screen()
+g.new()
+while g.running:
+    g.main()
+    g.game_over()
+
+pygame.quit()
+sys.exit()
