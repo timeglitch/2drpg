@@ -9,7 +9,7 @@ class Player(pygame.sprite.Sprite):
         self.game = game
         self._layer = PLAYER_LAYER
         self.groups = self.game.allsprites
-        pygame.sprite.Sprite.__init__(self, self.groups, x, y)
+        pygame.sprite.Sprite.__init__(self, self.groups)
 
         self.x = x * TILESIZE
         self.y = y * TILESIZE
