@@ -13,7 +13,7 @@ class Game:
         #self.font = pygame.font.Font('Arial', 32)
         self.running = True
 
-        self.update()
+        #self.update()
     
     def new(self):
         #a new game starts
